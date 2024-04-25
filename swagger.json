@@ -1,0 +1,135 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Gin API",
+    "description": "An example API for managing gin spirits"
+  },
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ],
+  "paths": {
+    "/gins": {
+      "get": {
+        "summary": "Get All Gins",
+        "description": "Returns a list of all gin spirits",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Spirit"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add New Gin",
+        "description": "Adds a new gin spirit to the collection",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Spirit"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Gin created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Spirit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gins/{id}": {
+      "get": {
+        "summary": "Get Gin by ID",
+        "description": "Returns a gin spirit by its ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Spirit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Gin not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Spirit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1"
+          },
+          "name": {
+            "type": "string",
+            "example": "Monkey 47 Gin 0,5 Liter"
+          },
+          "description": {
+            "type": "string",
+            "example": "Monkey 47 - Der populäre Renner aus dem Schwarzwald"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "example": 34.99
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Gin not found"
+          }
+        }
+      }
+    }
+  }
+}
