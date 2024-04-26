@@ -16,7 +16,7 @@ To get started with using this API, follow the instructions below:
 1. Clone this repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/gin-api.git
+    git clone https://github.com/webserverdude/go-gin-api.git
     ```
 
 2. Change into the directory:
