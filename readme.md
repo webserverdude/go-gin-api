@@ -8,7 +8,7 @@ To get started with using this API, follow the instructions below:
 
 ### Prerequisites
 
-- Go installed on your system. You can download and install it from [golang.org](https://golang.org/doc/install).
+- Go (>= 1.22.1) installed on your system. You can download and install it from [golang.org](https://golang.org/doc/install).
 - Git installed on your system. You can download and install it from [git-scm.com](https://git-scm.com/downloads).
 
 ### Installation
@@ -22,7 +22,7 @@ To get started with using this API, follow the instructions below:
 2. Change into the directory:
 
     ```bash
-    cd gin-api
+    cd go-gin-api
     ```
 
 3. Install dependencies:

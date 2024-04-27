@@ -26,6 +26,7 @@ func main() {
     router.GET("/gins", getGins)
     router.GET("/gins/:id", getGinByID)
     router.POST("/gins", postGins)
+    router.StaticFile("/openapi.json", "openapi.json")
 
     router.RunTLS(":8000","server.crt", "server.key")
 }
