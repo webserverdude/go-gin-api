@@ -5,11 +5,6 @@
     "title": "Gin API",
     "description": "An example API for managing gin spirits"
   },
-  "servers": [
-    {
-      "url": "/api"
-    }
-  ],
   "paths": {
     "/gins": {
       "get": {
